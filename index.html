@@ -1,0 +1,636 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.2" />
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?finder-kid";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  <title> Gz's Blog </title>
+</head>
+
+<body>
+<!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
+  <div class="container one-column 
+   page-home 
+">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">Gz's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+     
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-about">
+        <a href="/about">
+          <i class="menu-item-icon icon-about"></i> <br />
+          关于
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+  <div id="posts" class="posts-expand">
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/03/09/Linux远程管理工具介绍/">
+                Linux远程管理工具介绍
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-03-08
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/03/09/Linux远程管理工具介绍/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/09/Linux远程管理工具介绍/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="写在前面">写在前面</h1><p>在Linux下工作也有两年多了，在平常工作中，也会将自己的一些经验传授给新人，正所谓“教是最好的学”，在此过程中，我可以把自己所学进一步提炼，使其系统化。<br>本人怀着敬畏之心，本着班门弄斧的态度，写下这些文字的。大牛请跳过，让您见笑了，戝笑～</p>
+<blockquote>
+<p><strong>本文整理的是Linux终端操作和文件传输相关工具介绍，远程桌面不在讨论范围</strong></p>
+</blockquote>
+<h1 id="管理工具介绍">管理工具介绍</h1><h2 id="SecureCRT">SecureCRT</h2><p><a href="http://zh.wikipedia.org/wiki/SecureCRT" target="_blank" rel="external">SecureCRT</a>是VanDyke Software的一个商业SSH、Telnet客户端和虚拟终端软件。SecureCRT最初是一个Windows下的产品，目前VanDyke增加了Mac OS X和Linux下的版本。</p>
+<h3 id="版本介绍">版本介绍</h3><ul>
+<li>windows版本</li>
+</ul>
+<p><img src="http://www.vandyke.com/images/screenshots/securecrt/scrt70win_tabs.jpg" alt=""></p>
+<ul>
+<li>Linux版本</li>
+</ul>
+<p><img src="http://www.vandyke.com/images/screenshots/securecrt/securecrt70tabsess.jpg" alt=""></p>
+<ul>
+<li>Mac版本</li>
+</ul>
+<p><img src="http://www.vandyke.com/images/screenshots/securecrt/scrt70mac_tabs.jpg" alt=""></p>
+<ul>
+<li>Ipad版本</li>
+</ul>
+<p><img src="http://www.vandyke.com/images/screenshots/ipad/mc01.jpg" alt=""></p>
+<h3 id="文件传输">文件传输</h3><ul>
+<li>z-modem rz/sz</li>
+</ul>
+<p><code>rz</code>  : 将服务器端选择的文件发送（send）到本地。</p>
+<p><code>sz</code> :  运行该命令会弹出一个文件选择窗口，从本地选择文件上传到服务器。</p>
+<p><strong> 若命令无法执行，一般情况为服务器不支持z-modem，需要安装<code>rzsz</code>，具体安装方法自行Google.</strong></p>
+<ul>
+<li>scp</li>
+</ul>
+<p>本地文件上传到服务器</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp local_file user<span class="variable">@remoteIP</span><span class="symbol">:remote_file</span></span><br></pre></td></tr></table></figure>
+<p>本地目录上传到服务器</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r local_folder user<span class="variable">@remoteIP</span><span class="symbol">:remote_folder</span></span><br></pre></td></tr></table></figure>
+<p>服务器文件下载到本地</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp usr<span class="variable">@remoteIP</span><span class="symbol">:remote_file</span> local_file</span><br></pre></td></tr></table></figure>
+<p>服务器目录下载到本地</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r user<span class="variable">@remoteIP</span><span class="symbol">:remote_folder</span> local_folder</span><br></pre></td></tr></table></figure>
+<p><strong>如果服务器端口有变化，用<code>-P port</code>进行指定。</strong></p>
+<ul>
+<li>sftp</li>
+</ul>
+<p><a href="http://zh.wikipedia.org/wiki/SSH%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">sftp</a>是基于SSH的一组传输协议。<br>在SecureCRT中按下快捷键<code>ALT+P</code>，开启新的会话，进入FTP操作模式。</p>
+<p>本地文件上传到服务器</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">put</span> local_file</span><br></pre></td></tr></table></figure>
+<p>本地文件目录上传到服务器</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">put</span> -r local_folder</span><br></pre></td></tr></table></figure>
+<p>服务器目录下载到本地</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get</span> remote_file</span><br></pre></td></tr></table></figure>
+<p>服务器文件目录下载到本地</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get</span> -r remote_folder</span><br></pre></td></tr></table></figure>
+<p><strong>相关命令详细使用方法请查看帮助文档。</strong></p>
+<h2 id="XManager套装">XManager套装</h2><p><a href="http://www.netsarang.com/" target="_blank" rel="external">XManager</a>套装中，常用工具主要包括Xshell和Xftp。</p>
+<h3 id="版本介绍-1">版本介绍</h3><ul>
+<li>Xshell</li>
+</ul>
+<p><img src="http://zhanggz.qiniudn.com/xshell.jpg" alt=""></p>
+<ul>
+<li>Xftp</li>
+</ul>
+<p><img src="http://zhanggz.qiniudn.com/xftp.jpg" alt=""></p>
+<h3 id="文件传输-1">文件传输</h3><ul>
+<li>z-modem rz/sz</li>
+</ul>
+<p>参考SecureCRT此功能相关介绍。</p>
+<ul>
+<li>scp</li>
+</ul>
+<p>参考SecureCRT此功能相关介绍。</p>
+<ul>
+<li>xftp</li>
+</ul>
+<p>此功能使用Xftp工具，可实现鼠标拖拽，不用写命令，比较方便。</p>
+<h2 id="Putty">Putty</h2><p><a href="http://putty.cs.utah.edu/" target="_blank" rel="external">Putty</a>是一个免费的telnet、rlogin和ssh客户端。<br><img src="http://www.putty.ws/sites/all/themes/putty/images/01.gif" alt=""></p>
+<h3 id="文件传输-2">文件传输</h3><ul>
+<li>z-modem rz/sz</li>
+</ul>
+<p><strong>不支持</strong></p>
+<ul>
+<li>scp</li>
+</ul>
+<p>参考SecureCRT此功能相关介绍。</p>
+<ul>
+<li>xftp</li>
+</ul>
+<p>此功能需要在putty的安装目录下，单独运行psftp工具，相关操作命令，参考SecureCRT此功能相关介绍。</p>
+<h2 id="比较">比较</h2><p> 一般linux初学者，可能会在windows下虚拟一个Linux系统供自己学习，从这一点考虑，我会倾向于推荐Xshell+Xftp。土壕可以考虑SecureCRT，当然你可以说破解版有的是，我只想说，程序员何苦为难程序员。如果你的工作环境有Linux和Windos，putty会是不错的选择，本人目前使用putty，有时直接在shell里用原生的SSH命令，也是挺爽的～<br>  详细请参考<a href="http://zh.wikipedia.org/wiki/SSH%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%AF%94%E8%BE%83" target="_blank" rel="external">SSH工具比较</a></p>
+<h1 id="Linux终端利器－tmux">Linux终端利器－tmux</h1><blockquote>
+<p>我们大多数情况下，Linux是作为服务器使用，我们远程过去，配置，部署，监控，分析，必要时候需要多窗口操作。当然&gt;SecureCRT，Xshell等工具都支持tab窗口，Putty也可以通过插件实现。我在这里再提供一种选择，终端分屏软件，直接上图，有兴趣的自行Google。</p>
+</blockquote>
+<p><img src="http://zhanggz.qiniudn.com/tmux.jpg" alt=""></p>
+<hr>
+<p><strong>文章转载请注明作者和出处</strong></p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/"> #Linux </a>
+          
+            <a href="/tags/SecureCRT/"> #SecureCRT </a>
+          
+            <a href="/tags/putty/"> #putty </a>
+          
+            <a href="/tags/ssh/"> #ssh </a>
+          
+            <a href="/tags/tmux/"> #tmux </a>
+          
+            <a href="/tags/xshell/"> #xshell </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+  </div>
+
+  
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="http://zhanggz.qiniudn.com/webwxgeticon.jpg" alt="Gz" />
+          <p class="site-author-name">Gz</p>
+        </div>
+        <p class="site-description motion-element"></p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/AlexFinder" target="_blank">github</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://douban.com/people/67697174" target="_blank">douban</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+
+      </div>
+
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp;  2014 - 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">Gz</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.content img').each(function () {
+        var $image = $(this);
+        var $imageWrapLink = $image.parent('a');
+
+        if ($imageWrapLink.size() < 1) {
+          $imageWrapLink = $image.wrap('<a href="' + this.getAttribute('src') + '"></a>').parent('a');
+        }
+        $imageWrapLink.addClass('fancybox');
+      });
+    });
+    $('.fancybox').fancybox({
+      helpers: {
+        overlay: {
+          locked: false
+        }
+      }
+    });
+  </script>
+
+
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
+
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    LogoAndMenuMotion();
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        sidebarContentMotion();
+      })
+      .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.logo-line-before i'), p: { translateX: "100%" }, o: { duration: 500, sequenceQueue: false } },
+        { e: $('.logo-line-after i'), p: { translateX: "-100%" }, o: { duration: 500, sequenceQueue: false } },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
+
+
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
+    }
+
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
+    }
+
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+  
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+  
+
+
+  
+  
+</body>
+</html>
