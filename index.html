@@ -131,6 +131,132 @@
           
           
             
+              <a class="post-title-link" href="/2015/05/24/Linux初始化工作/">
+                Linux初始化工作
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-24
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/24/Linux初始化工作/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/24/Linux初始化工作/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="用户管理">用户管理</h1><h2 id="建用户">建用户</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">adduser</span> username</span><br><span class="line">passwd username</span><br></pre></td></tr></table></figure>
+<h2 id="将新建用户添加至wheel组">将新建用户添加至wheel组</h2><ul>
+<li>root登录，修改 <code>/etc/pam.d/su</code> 文件，找到<code>#auth required pam_wheel.so use_uid</code>这一行，将行首的<code>#</code>去掉。</li>
+<li>执行<code>usermod -G wheel username</code></li>
+</ul>
+<h2 id="配置新建用户可使用sudo命令">配置新建用户可使用<code>sudo</code>命令</h2><ul>
+<li>执行<code>#vim /etc/sudoers</code></li>
+<li>找到<code>root    ALL=(ALL)       ALL</code>，复制一行，将root修改为username</li>
+</ul>
+<h2 id="删除不需要的用户，不需要的组">删除不需要的用户，不需要的组</h2><blockquote>
+<p>注意：不建议直接删除，当你需要某个用户时，自己重新添加会很麻烦。</p>
+</blockquote>
+<ul>
+<li><code>cp /etc/passwd /etc/passwdbak</code> #修改之前先备份</li>
+<li><code>vi /etc/passwd</code> #编辑用户，在前面加上#注释掉此行</li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#<span class="string">adm:</span><span class="string">x:</span><span class="number">3</span>:<span class="number">4</span>:<span class="string">adm:</span><span class="regexp">/var/</span><span class="string">adm:</span><span class="regexp">/sbin/</span>nologin</span><br><span class="line">#<span class="string">lp:</span><span class="string">x:</span><span class="number">4</span>:<span class="number">7</span>:<span class="string">lp:</span><span class="regexp">/var/</span>spool<span class="regexp">/lpd:/</span>sbin/nologin</span><br><span class="line">#<span class="string">sync:</span><span class="string">x:</span><span class="number">5</span>:<span class="number">0</span>:<span class="string">sync:</span><span class="regexp">/sbin:/</span>bin/sync</span><br><span class="line">#<span class="string">shutdown:</span><span class="string">x:</span><span class="number">6</span>:<span class="number">0</span>:<span class="string">shutdown:</span><span class="regexp">/sbin:/</span>sbin/shutdown</span><br><span class="line">#<span class="string">halt:</span><span class="string">x:</span><span class="number">7</span>:<span class="number">0</span>:<span class="string">halt:</span><span class="regexp">/sbin:/</span>sbin/halt</span><br><span class="line">#<span class="string">uucp:</span><span class="string">x:</span><span class="number">10</span>:<span class="number">14</span>:<span class="string">uucp:</span><span class="regexp">/var/</span>spool<span class="regexp">/uucp:/</span>sbin/nologin</span><br><span class="line">#<span class="string">operator:</span><span class="string">x:</span><span class="number">11</span>:<span class="number">0</span>:<span class="string">operator:</span><span class="regexp">/root:/</span>sbin/nologin</span><br><span class="line">#<span class="string">games:</span><span class="string">x:</span><span class="number">12</span>:<span class="number">100</span>:<span class="string">games:</span><span class="regexp">/usr/</span><span class="string">games:</span><span class="regexp">/sbin/</span>nologin</span><br><span class="line">#<span class="string">gopher:</span><span class="string">x:</span><span class="number">13</span>:<span class="number">30</span>:<span class="string">gopher:</span><span class="regexp">/var/</span><span class="string">gopher:</span><span class="regexp">/sbin/</span>nologin</span><br><span class="line">#<span class="string">ftp:</span><span class="string">x:</span><span class="number">14</span>:<span class="number">50</span>:FTP <span class="string">User:</span><span class="regexp">/var/</span><span class="string">ftp:</span><span class="regexp">/sbin/</span>nologin #注释掉ftp匿名账号</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>cp /etc/group /etc/groupbak</code> #修改之前先备份</li>
+<li><code>vi /etc/group</code> #编辑用户组，在前面加上#注释掉此行</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#adm</span><span class="pseudo">:x</span><span class="pseudo">:4</span><span class="pseudo">:root</span>,<span class="tag">adm</span>,<span class="tag">daemon</span></span><br><span class="line"><span class="id">#lp</span><span class="pseudo">:x</span><span class="pseudo">:7</span><span class="pseudo">:daemon</span>,<span class="tag">lp</span></span><br><span class="line"><span class="id">#uucp</span><span class="pseudo">:x</span><span class="pseudo">:14</span><span class="pseudo">:uucp</span></span><br><span class="line"><span class="id">#games</span><span class="pseudo">:x</span><span class="pseudo">:20</span>:</span><br><span class="line"><span class="id">#dip</span><span class="pseudo">:x</span><span class="pseudo">:40</span>:</span><br><span class="line"><span class="id">#news</span><span class="pseudo">:x</span><span class="pseudo">:9</span><span class="pseudo">:13</span><span class="pseudo">:news</span>:/<span class="tag">etc</span>/<span class="tag">news</span>:</span><br></pre></td></tr></table></figure>
+<h1 id="修改SSH连接">修改SSH连接</h1><blockquote>
+<p>出于安全考虑，SSH服务配置做以下方面修改</p>
+</blockquote>
+<ul>
+<li>修改端口</li>
+<li>禁止root用户登陆</li>
+<li>支持密钥登陆</li>
+<li>禁用密码登陆</li>
+</ul>
+<p>编辑/etc/ssh/sshd_config文件</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">Port</span> <span class="number">22</span> <span class="comment">#自己定义一个端口</span></span><br><span class="line">HostKey /etc/ssh/ssh_host_dsa_key <span class="comment">#支持密钥登陆</span></span><br><span class="line">PermitRootLogin <span class="built_in">no</span> <span class="comment"># 禁用root登陆</span></span><br><span class="line">StrictModes <span class="built_in">yes</span> <span class="comment"># 采用putty等客户端登陆需要改成no</span></span><br><span class="line">RSAAuthentication <span class="built_in">yes</span></span><br><span class="line">PubkeyAuthentication <span class="built_in">yes</span></span><br><span class="line">AuthorizedKeysFile      .ssh/authorized_keys</span><br><span class="line">PasswordAuthentication <span class="built_in">no</span> <span class="comment"># 禁用密码登陆</span></span><br></pre></td></tr></table></figure>
+<p>调用<code>ssh-keygen -t rsa</code>生成密钥对，将公钥上id_rsa.pub上传至服务器<code>~/.ssh</code>目录，然后执行<code>cat id_rsa.pub &gt;&gt; authorized_keys</code></p>
+<blockquote>
+<p>注意，操作完成后，新开一个连接检测是否配置正常，不要关闭当前连接，否则你可能永远都连不上你的服务器了。。。。</p>
+</blockquote>
+<h1 id="防火墙设置">防火墙设置</h1><h2 id="禁止ping">禁止ping</h2><ul>
+<li>如果没有iptables禁止ping</li>
+</ul>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="number">1</span> &amp;gt; /<span class="keyword">proc</span>/sys/net/ipv4/icmp_echo_igore_all <span class="comment">#开启</span></span><br><span class="line">echo <span class="number">0</span> &amp;gt; /<span class="keyword">proc</span>/sys/net/ipv4/icmp_echo_igore_all <span class="comment">#关闭</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>利用iptables规则禁ping</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A <span class="keyword">INPUT</span> -p icmp --icmp-<span class="keyword">type</span> 8 -s 0/0 -j <span class="keyword">DROP</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> 注意保存<code>service iptables save</code>和重启服务<code>service iptables reload</code></p>
+</blockquote>
+<h1 id="关闭selinux">关闭selinux</h1><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/setenforce <span class="number">0</span>  <span class="comment"># 0立刻关闭 1立刻启用</span></span><br><span class="line">echo <span class="string">"/usr/sbin/setenforce 0"</span> <span class="prompt">&gt;&gt; </span>/etc/rc.local <span class="comment"># 加到系统默认启动里面</span></span><br></pre></td></tr></table></figure>
+<h1 id="关掉不必要的服务">关掉不必要的服务</h1><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">chkconfig</span> --list <span class="comment"># 查看系统所有的服务是打开还是关闭</span></span><br><span class="line">chkconfig 服务名 <span class="built_in">on</span> <span class="comment"># 设置随机启动</span></span><br><span class="line">chkconfig 服务名 <span class="built_in">off</span> <span class="comment"># 设置不随机启动</span></span><br></pre></td></tr></table></figure>
+<h1 id="修改系统参数">修改系统参数</h1><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cat</span>&gt;&gt;/etc/sysctl.<span class="keyword">conf</span>&lt;&lt;eof</span><br><span class="line">     <span class="keyword">net</span>.ipv4.tcp_syncookies = 1</span><br><span class="line">     <span class="keyword">net</span>.ipv4.tcp_tw_reuse = 1</span><br><span class="line">     <span class="keyword">net</span>.ipv4.tcp_tw_recycle = 1</span><br><span class="line">     <span class="keyword">net</span>.ipv4.tcp_fin_timeout = 30</span><br><span class="line">     <span class="keyword">net</span>.ipv4.tcp_keepalive_time = 120</span><br><span class="line">     <span class="keyword">net</span>.ipv4.ip_local_port_range = 10000 65000</span><br><span class="line">     <span class="keyword">net</span>.ipv4.tcp_max_tw_buckets = 8000</span><br><span class="line">   eof</span><br><span class="line">   sysctl -p</span><br><span class="line"></span><br><span class="line">   ulimit -HSn 65535</span><br><span class="line">   echo -ne "</span><br><span class="line"><span class="comment">   * soft nofile 65535</span></span><br><span class="line"><span class="comment">   * hard nofile 65535</span></span><br><span class="line">   " &gt;&gt;/etc/security/limits.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/"> #Linux </a>
+          
+            <a href="/tags/iptables/"> #iptables </a>
+          
+            <a href="/tags/ssh/"> #ssh </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/03/09/Linux远程管理工具介绍/">
                 Linux远程管理工具介绍
               </a>
@@ -328,7 +454,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -342,7 +468,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
