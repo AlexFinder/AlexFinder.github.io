@@ -20,7 +20,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="springMVC,参数校验,数据绑定," />
 
 
 
@@ -41,14 +41,12 @@
   </script>
 
 
-  <title> Gz's Blog </title>
+  <title> SpringMVC数据绑定校验 // Gz's Blog </title>
 </head>
 
 <body>
 <!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <div id="header" class="header">
@@ -118,9 +116,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
+
   <div id="posts" class="posts-expand">
     
-      
 
   <div class="post post-type-normal ">
     <div class="post-header">
@@ -131,9 +129,7 @@
           
           
             
-              <a class="post-title-link" href="/2016/04/07/SpringMVC数据绑定校验/">
-                SpringMVC数据绑定校验
-              </a>
+              SpringMVC数据绑定校验
             
           
         </h1>
@@ -165,8 +161,7 @@
       
 
       
-        
-          <p>﻿ &gt;在使用springMVC与前端小伙伴对接开发时，最日常的工作莫过于收参、数据绑定、校验等繁琐的工作。springMVC自身提供了较好的支持，这里简单记录，查漏补缺。</p>
+        <p>﻿ &gt;在使用springMVC与前端小伙伴对接开发时，最日常的工作莫过于收参、数据绑定、校验等繁琐的工作。springMVC自身提供了较好的支持，这里简单记录，查漏补缺。</p>
 <h2 id="1-注解数据绑定">1.注解数据绑定</h2><h3 id="1-1-RequestParam">1.1.RequestParam</h3><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(<span class="string">"/get1"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">String</span> get1(@RequestParam(value<span class="subst">=</span><span class="string">"p1"</span>, required<span class="subst">=</span><span class="literal">true</span>, defaultValue <span class="subst">=</span> <span class="string">"test"</span>)<span class="built_in">String</span> p1,ModelMap <span class="built_in">map</span>)&#123;</span><br><span class="line">	<span class="built_in">map</span><span class="built_in">.</span>put(<span class="string">"p1"</span>, p1);</span><br><span class="line">	<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><em>required: 是否必须，默认为true，表示请求中一定要有相应的参数，否则将报404错误码</em><br><em>defaultValue: 默认值，表示如果请求中没有同名参数时的默认值，一般分页参数可以这样设计</em></p>
 <p><em>如果请求参数类似于url?role=admin&amp;role=user，则实际roleList参数入参的数据为“admin,user”，即多个数据之间使用“，”分割；</em><br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="annotation">@RequestMapping</span>(<span class="string">"/get1"</span>)</span><br><span class="line">public <span class="built_in">String</span> get1(<span class="annotation">@RequestParam</span>(value=<span class="string">"role"</span>) <span class="built_in">String</span>[] roleList)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="annotation">@RequestMapping</span>(<span class="string">"/get1"</span>)</span><br><span class="line">public <span class="built_in">String</span> get1(<span class="annotation">@RequestParam</span>(value=<span class="string">"list"</span>) <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; list)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -207,7 +202,6 @@
 <li><a href="http://jinnianshilongnian.iteye.com/blog/1705701" target="_blank" rel="external">http://jinnianshilongnian.iteye.com/blog/1705701</a></li>
 </ul>
 
-        
       
     </div>
 
@@ -225,319 +219,37 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
             
-              <a class="post-title-link" href="/2015/05/24/Linux初始化工作/">
-                Linux初始化工作
-              </a>
+          </div>
+
+          <div class="post-nav-next post-nav-item">
             
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-24
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/24/Linux初始化工作/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/24/Linux初始化工作/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h1 id="用户管理">用户管理</h1><h2 id="建用户">建用户</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">adduser</span> username</span><br><span class="line">passwd username</span><br></pre></td></tr></table></figure>
-<h2 id="将新建用户添加至wheel组">将新建用户添加至wheel组</h2><ul>
-<li>root登录，修改 <code>/etc/pam.d/su</code> 文件，找到<code>#auth required pam_wheel.so use_uid</code>这一行，将行首的<code>#</code>去掉。</li>
-<li>执行<code>usermod -G wheel username</code></li>
-</ul>
-<h2 id="配置新建用户可使用sudo命令">配置新建用户可使用<code>sudo</code>命令</h2><ul>
-<li>执行<code>#vim /etc/sudoers</code></li>
-<li>找到<code>root    ALL=(ALL)       ALL</code>，复制一行，将root修改为username</li>
-</ul>
-<h2 id="删除不需要的用户，不需要的组">删除不需要的用户，不需要的组</h2><blockquote>
-<p>注意：不建议直接删除，当你需要某个用户时，自己重新添加会很麻烦。</p>
-</blockquote>
-<ul>
-<li><code>cp /etc/passwd /etc/passwdbak</code> #修改之前先备份</li>
-<li><code>vi /etc/passwd</code> #编辑用户，在前面加上#注释掉此行</li>
-</ul>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#<span class="string">adm:</span><span class="string">x:</span><span class="number">3</span>:<span class="number">4</span>:<span class="string">adm:</span><span class="regexp">/var/</span><span class="string">adm:</span><span class="regexp">/sbin/</span>nologin</span><br><span class="line">#<span class="string">lp:</span><span class="string">x:</span><span class="number">4</span>:<span class="number">7</span>:<span class="string">lp:</span><span class="regexp">/var/</span>spool<span class="regexp">/lpd:/</span>sbin/nologin</span><br><span class="line">#<span class="string">sync:</span><span class="string">x:</span><span class="number">5</span>:<span class="number">0</span>:<span class="string">sync:</span><span class="regexp">/sbin:/</span>bin/sync</span><br><span class="line">#<span class="string">shutdown:</span><span class="string">x:</span><span class="number">6</span>:<span class="number">0</span>:<span class="string">shutdown:</span><span class="regexp">/sbin:/</span>sbin/shutdown</span><br><span class="line">#<span class="string">halt:</span><span class="string">x:</span><span class="number">7</span>:<span class="number">0</span>:<span class="string">halt:</span><span class="regexp">/sbin:/</span>sbin/halt</span><br><span class="line">#<span class="string">uucp:</span><span class="string">x:</span><span class="number">10</span>:<span class="number">14</span>:<span class="string">uucp:</span><span class="regexp">/var/</span>spool<span class="regexp">/uucp:/</span>sbin/nologin</span><br><span class="line">#<span class="string">operator:</span><span class="string">x:</span><span class="number">11</span>:<span class="number">0</span>:<span class="string">operator:</span><span class="regexp">/root:/</span>sbin/nologin</span><br><span class="line">#<span class="string">games:</span><span class="string">x:</span><span class="number">12</span>:<span class="number">100</span>:<span class="string">games:</span><span class="regexp">/usr/</span><span class="string">games:</span><span class="regexp">/sbin/</span>nologin</span><br><span class="line">#<span class="string">gopher:</span><span class="string">x:</span><span class="number">13</span>:<span class="number">30</span>:<span class="string">gopher:</span><span class="regexp">/var/</span><span class="string">gopher:</span><span class="regexp">/sbin/</span>nologin</span><br><span class="line">#<span class="string">ftp:</span><span class="string">x:</span><span class="number">14</span>:<span class="number">50</span>:FTP <span class="string">User:</span><span class="regexp">/var/</span><span class="string">ftp:</span><span class="regexp">/sbin/</span>nologin #注释掉ftp匿名账号</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>cp /etc/group /etc/groupbak</code> #修改之前先备份</li>
-<li><code>vi /etc/group</code> #编辑用户组，在前面加上#注释掉此行</li>
-</ul>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#adm</span><span class="pseudo">:x</span><span class="pseudo">:4</span><span class="pseudo">:root</span>,<span class="tag">adm</span>,<span class="tag">daemon</span></span><br><span class="line"><span class="id">#lp</span><span class="pseudo">:x</span><span class="pseudo">:7</span><span class="pseudo">:daemon</span>,<span class="tag">lp</span></span><br><span class="line"><span class="id">#uucp</span><span class="pseudo">:x</span><span class="pseudo">:14</span><span class="pseudo">:uucp</span></span><br><span class="line"><span class="id">#games</span><span class="pseudo">:x</span><span class="pseudo">:20</span>:</span><br><span class="line"><span class="id">#dip</span><span class="pseudo">:x</span><span class="pseudo">:40</span>:</span><br><span class="line"><span class="id">#news</span><span class="pseudo">:x</span><span class="pseudo">:9</span><span class="pseudo">:13</span><span class="pseudo">:news</span>:/<span class="tag">etc</span>/<span class="tag">news</span>:</span><br></pre></td></tr></table></figure>
-<h1 id="修改SSH连接">修改SSH连接</h1><blockquote>
-<p>出于安全考虑，SSH服务配置做以下方面修改</p>
-</blockquote>
-<ul>
-<li>修改端口</li>
-<li>禁止root用户登陆</li>
-<li>支持密钥登陆</li>
-<li>禁用密码登陆</li>
-</ul>
-<p>编辑/etc/ssh/sshd_config文件</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">Port</span> <span class="number">22</span> <span class="comment">#自己定义一个端口</span></span><br><span class="line">HostKey /etc/ssh/ssh_host_dsa_key <span class="comment">#支持密钥登陆</span></span><br><span class="line">PermitRootLogin <span class="built_in">no</span> <span class="comment"># 禁用root登陆</span></span><br><span class="line">StrictModes <span class="built_in">yes</span> <span class="comment"># 采用putty等客户端登陆需要改成no</span></span><br><span class="line">RSAAuthentication <span class="built_in">yes</span></span><br><span class="line">PubkeyAuthentication <span class="built_in">yes</span></span><br><span class="line">AuthorizedKeysFile      .ssh/authorized_keys</span><br><span class="line">PasswordAuthentication <span class="built_in">no</span> <span class="comment"># 禁用密码登陆</span></span><br></pre></td></tr></table></figure>
-<p>调用<code>ssh-keygen -t rsa</code>生成密钥对，将公钥上id_rsa.pub上传至服务器<code>~/.ssh</code>目录，然后执行<code>cat id_rsa.pub &gt;&gt; authorized_keys</code></p>
-<blockquote>
-<p>注意，操作完成后，新开一个连接检测是否配置正常，不要关闭当前连接，否则你可能永远都连不上你的服务器了。。。。</p>
-</blockquote>
-<h1 id="防火墙设置">防火墙设置</h1><h2 id="禁止ping">禁止ping</h2><ul>
-<li>如果没有iptables禁止ping</li>
-</ul>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="number">1</span> &amp;gt; /<span class="keyword">proc</span>/sys/net/ipv4/icmp_echo_igore_all <span class="comment">#开启</span></span><br><span class="line">echo <span class="number">0</span> &amp;gt; /<span class="keyword">proc</span>/sys/net/ipv4/icmp_echo_igore_all <span class="comment">#关闭</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>利用iptables规则禁ping</li>
-</ul>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A <span class="keyword">INPUT</span> -p icmp --icmp-<span class="keyword">type</span> 8 -s 0/0 -j <span class="keyword">DROP</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p> 注意保存<code>service iptables save</code>和重启服务<code>service iptables reload</code></p>
-</blockquote>
-<h1 id="关闭selinux">关闭selinux</h1><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/setenforce <span class="number">0</span>  <span class="comment"># 0立刻关闭 1立刻启用</span></span><br><span class="line">echo <span class="string">"/usr/sbin/setenforce 0"</span> <span class="prompt">&gt;&gt; </span>/etc/rc.local <span class="comment"># 加到系统默认启动里面</span></span><br></pre></td></tr></table></figure>
-<h1 id="关掉不必要的服务">关掉不必要的服务</h1><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">chkconfig</span> --list <span class="comment"># 查看系统所有的服务是打开还是关闭</span></span><br><span class="line">chkconfig 服务名 <span class="built_in">on</span> <span class="comment"># 设置随机启动</span></span><br><span class="line">chkconfig 服务名 <span class="built_in">off</span> <span class="comment"># 设置不随机启动</span></span><br></pre></td></tr></table></figure>
-<h1 id="修改系统参数">修改系统参数</h1><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cat</span>&gt;&gt;/etc/sysctl.<span class="keyword">conf</span>&lt;&lt;eof</span><br><span class="line">     <span class="keyword">net</span>.ipv4.tcp_syncookies = 1</span><br><span class="line">     <span class="keyword">net</span>.ipv4.tcp_tw_reuse = 1</span><br><span class="line">     <span class="keyword">net</span>.ipv4.tcp_tw_recycle = 1</span><br><span class="line">     <span class="keyword">net</span>.ipv4.tcp_fin_timeout = 30</span><br><span class="line">     <span class="keyword">net</span>.ipv4.tcp_keepalive_time = 120</span><br><span class="line">     <span class="keyword">net</span>.ipv4.ip_local_port_range = 10000 65000</span><br><span class="line">     <span class="keyword">net</span>.ipv4.tcp_max_tw_buckets = 8000</span><br><span class="line">   eof</span><br><span class="line">   sysctl -p</span><br><span class="line"></span><br><span class="line">   ulimit -HSn 65535</span><br><span class="line">   echo -ne "</span><br><span class="line"><span class="comment">   * soft nofile 65535</span></span><br><span class="line"><span class="comment">   * hard nofile 65535</span></span><br><span class="line">   " &gt;&gt;/etc/security/limits.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/"> #Linux </a>
-          
-            <a href="/tags/iptables/"> #iptables </a>
-          
-            <a href="/tags/ssh/"> #ssh </a>
-          
+              <a href="/2015/05/24/Linux初始化工作/">Linux初始化工作</a>
+            
+          </div>
         </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </div>
   </div>
 
 
+
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/03/09/Linux远程管理工具介绍/">
-                Linux远程管理工具介绍
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-03-08
-        </span>
-
+      <div class="comments" id="comments">
         
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/03/09/Linux远程管理工具介绍/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/09/Linux远程管理工具介绍/"></span>
-            </a>
-          </span>
-          
+          <div class="ds-thread" data-thread-key="2016/04/07/SpringMVC数据绑定校验/"
+               data-title="SpringMVC数据绑定校验" data-url="http://yoursite.com/2016/04/07/SpringMVC数据绑定校验/">
+          </div>
         
       </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h1 id="写在前面">写在前面</h1><p>在Linux下工作也有两年多了，在平常工作中，也会将自己的一些经验传授给新人，正所谓“教是最好的学”，在此过程中，我可以把自己所学进一步提炼，使其系统化。<br>本人怀着敬畏之心，本着班门弄斧的态度，写下这些文字的。大牛请跳过，让您见笑了，戝笑～</p>
-<blockquote>
-<p><strong>本文整理的是Linux终端操作和文件传输相关工具介绍，远程桌面不在讨论范围</strong></p>
-</blockquote>
-<h1 id="管理工具介绍">管理工具介绍</h1><h2 id="SecureCRT">SecureCRT</h2><p><a href="http://zh.wikipedia.org/wiki/SecureCRT" target="_blank" rel="external">SecureCRT</a>是VanDyke Software的一个商业SSH、Telnet客户端和虚拟终端软件。SecureCRT最初是一个Windows下的产品，目前VanDyke增加了Mac OS X和Linux下的版本。</p>
-<h3 id="版本介绍">版本介绍</h3><ul>
-<li>windows版本</li>
-</ul>
-<p><img src="http://www.vandyke.com/images/screenshots/securecrt/scrt70win_tabs.jpg" alt=""></p>
-<ul>
-<li>Linux版本</li>
-</ul>
-<p><img src="http://www.vandyke.com/images/screenshots/securecrt/securecrt70tabsess.jpg" alt=""></p>
-<ul>
-<li>Mac版本</li>
-</ul>
-<p><img src="http://www.vandyke.com/images/screenshots/securecrt/scrt70mac_tabs.jpg" alt=""></p>
-<ul>
-<li>Ipad版本</li>
-</ul>
-<p><img src="http://www.vandyke.com/images/screenshots/ipad/mc01.jpg" alt=""></p>
-<h3 id="文件传输">文件传输</h3><ul>
-<li>z-modem rz/sz</li>
-</ul>
-<p><code>rz</code>  : 将服务器端选择的文件发送（send）到本地。</p>
-<p><code>sz</code> :  运行该命令会弹出一个文件选择窗口，从本地选择文件上传到服务器。</p>
-<p><strong> 若命令无法执行，一般情况为服务器不支持z-modem，需要安装<code>rzsz</code>，具体安装方法自行Google.</strong></p>
-<ul>
-<li>scp</li>
-</ul>
-<p>本地文件上传到服务器</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp local_file user<span class="variable">@remoteIP</span><span class="symbol">:remote_file</span></span><br></pre></td></tr></table></figure>
-<p>本地目录上传到服务器</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r local_folder user<span class="variable">@remoteIP</span><span class="symbol">:remote_folder</span></span><br></pre></td></tr></table></figure>
-<p>服务器文件下载到本地</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp usr<span class="variable">@remoteIP</span><span class="symbol">:remote_file</span> local_file</span><br></pre></td></tr></table></figure>
-<p>服务器目录下载到本地</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r user<span class="variable">@remoteIP</span><span class="symbol">:remote_folder</span> local_folder</span><br></pre></td></tr></table></figure>
-<p><strong>如果服务器端口有变化，用<code>-P port</code>进行指定。</strong></p>
-<ul>
-<li>sftp</li>
-</ul>
-<p><a href="http://zh.wikipedia.org/wiki/SSH%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">sftp</a>是基于SSH的一组传输协议。<br>在SecureCRT中按下快捷键<code>ALT+P</code>，开启新的会话，进入FTP操作模式。</p>
-<p>本地文件上传到服务器</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">put</span> local_file</span><br></pre></td></tr></table></figure>
-<p>本地文件目录上传到服务器</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">put</span> -r local_folder</span><br></pre></td></tr></table></figure>
-<p>服务器目录下载到本地</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get</span> remote_file</span><br></pre></td></tr></table></figure>
-<p>服务器文件目录下载到本地</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get</span> -r remote_folder</span><br></pre></td></tr></table></figure>
-<p><strong>相关命令详细使用方法请查看帮助文档。</strong></p>
-<h2 id="XManager套装">XManager套装</h2><p><a href="http://www.netsarang.com/" target="_blank" rel="external">XManager</a>套装中，常用工具主要包括Xshell和Xftp。</p>
-<h3 id="版本介绍-1">版本介绍</h3><ul>
-<li>Xshell</li>
-</ul>
-<p><img src="http://zhanggz.qiniudn.com/xshell.jpg" alt=""></p>
-<ul>
-<li>Xftp</li>
-</ul>
-<p><img src="http://zhanggz.qiniudn.com/xftp.jpg" alt=""></p>
-<h3 id="文件传输-1">文件传输</h3><ul>
-<li>z-modem rz/sz</li>
-</ul>
-<p>参考SecureCRT此功能相关介绍。</p>
-<ul>
-<li>scp</li>
-</ul>
-<p>参考SecureCRT此功能相关介绍。</p>
-<ul>
-<li>xftp</li>
-</ul>
-<p>此功能使用Xftp工具，可实现鼠标拖拽，不用写命令，比较方便。</p>
-<h2 id="Putty">Putty</h2><p><a href="http://putty.cs.utah.edu/" target="_blank" rel="external">Putty</a>是一个免费的telnet、rlogin和ssh客户端。<br><img src="http://www.putty.ws/sites/all/themes/putty/images/01.gif" alt=""></p>
-<h3 id="文件传输-2">文件传输</h3><ul>
-<li>z-modem rz/sz</li>
-</ul>
-<p><strong>不支持</strong></p>
-<ul>
-<li>scp</li>
-</ul>
-<p>参考SecureCRT此功能相关介绍。</p>
-<ul>
-<li>xftp</li>
-</ul>
-<p>此功能需要在putty的安装目录下，单独运行psftp工具，相关操作命令，参考SecureCRT此功能相关介绍。</p>
-<h2 id="比较">比较</h2><p> 一般linux初学者，可能会在windows下虚拟一个Linux系统供自己学习，从这一点考虑，我会倾向于推荐Xshell+Xftp。土壕可以考虑SecureCRT，当然你可以说破解版有的是，我只想说，程序员何苦为难程序员。如果你的工作环境有Linux和Windos，putty会是不错的选择，本人目前使用putty，有时直接在shell里用原生的SSH命令，也是挺爽的～<br>  详细请参考<a href="http://zh.wikipedia.org/wiki/SSH%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%AF%94%E8%BE%83" target="_blank" rel="external">SSH工具比较</a></p>
-<h1 id="Linux终端利器－tmux">Linux终端利器－tmux</h1><blockquote>
-<p>我们大多数情况下，Linux是作为服务器使用，我们远程过去，配置，部署，监控，分析，必要时候需要多窗口操作。当然&gt;SecureCRT，Xshell等工具都支持tab窗口，Putty也可以通过插件实现。我在这里再提供一种选择，终端分屏软件，直接上图，有兴趣的自行Google。</p>
-</blockquote>
-<p><img src="http://zhanggz.qiniudn.com/tmux.jpg" alt=""></p>
-<hr>
-<p><strong>文章转载请注明作者和出处</strong></p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/"> #Linux </a>
-          
-            <a href="/tags/SecureCRT/"> #SecureCRT </a>
-          
-            <a href="/tags/putty/"> #putty </a>
-          
-            <a href="/tags/ssh/"> #ssh </a>
-          
-            <a href="/tags/tmux/"> #tmux </a>
-          
-            <a href="/tags/xshell/"> #xshell </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
     
   </div>
 
-  
 
         </div>
 
@@ -558,6 +270,15 @@
   <div id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
       <div class="site-overview">
@@ -611,6 +332,17 @@
 
       </div>
 
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-注解数据绑定"><span class="nav-number">1.</span> <span class="nav-text">1.注解数据绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-RequestParam"><span class="nav-number">1.1.</span> <span class="nav-text">1.1.RequestParam</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-PathVariable"><span class="nav-number">1.2.</span> <span class="nav-text">1.2.PathVariable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-ModelAttribute"><span class="nav-number">1.3.</span> <span class="nav-text">1.3.ModelAttribute</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-CookieValue"><span class="nav-number">1.4.</span> <span class="nav-text">1.4.CookieValue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-RequestHeader"><span class="nav-number">1.5.</span> <span class="nav-text">1.5.RequestHeader</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数据校验"><span class="nav-number">2.</span> <span class="nav-text">2.数据校验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-validator接口验证"><span class="nav-number">2.1.</span> <span class="nav-text">2.1.validator接口验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-JSR-303_validation验证"><span class="nav-number">2.2.</span> <span class="nav-text">2.2.JSR-303 validation验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
       
 
     </div>
@@ -842,6 +574,328 @@
 
 
   
+  
+<script type="text/javascript" id="bootstrap.scrollspy.custom">
+  /* ========================================================================
+  * Bootstrap: scrollspy.js v3.3.2
+  * http://getbootstrap.com/javascript/#scrollspy
+  * ========================================================================
+  * Copyright 2011-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * ======================================================================== */
+
+  /**
+   * Custom by iissnan
+   *
+   * - Add a `clear.bs.scrollspy` event.
+   * - Esacpe targets selector.
+   */
+
+
+  +function ($) {
+    'use strict';
+
+    // SCROLLSPY CLASS DEFINITION
+    // ==========================
+
+    function ScrollSpy(element, options) {
+      this.$body          = $(document.body)
+      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
+      this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+      this.selector       = (this.options.target || '') + ' .nav li > a'
+      this.offsets        = []
+      this.targets        = []
+      this.activeTarget   = null
+      this.scrollHeight   = 0
+
+      this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+      this.refresh()
+      this.process()
+    }
+
+    ScrollSpy.VERSION  = '3.3.2'
+
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    }
+
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    }
+
+    ScrollSpy.prototype.refresh = function () {
+      var that          = this
+      var offsetMethod  = 'offset'
+      var offsetBase    = 0
+
+      this.offsets      = []
+      this.targets      = []
+      this.scrollHeight = this.getScrollHeight()
+
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position'
+        offsetBase   = this.$scrollElement.scrollTop()
+      }
+
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el   = $(this)
+          var href  = $el.data('target') || $el.attr('href')
+          var $href = /^#./.test(href) && $(escapeSelector(href)) // Need to escape selector.
+
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0])
+          that.targets.push(this[1])
+        })
+
+
+    }
+
+    ScrollSpy.prototype.process = function () {
+      var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+      var scrollHeight = this.getScrollHeight()
+      var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+      var offsets      = this.offsets
+      var targets      = this.targets
+      var activeTarget = this.activeTarget
+      var i
+
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh()
+      }
+
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+      }
+
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.bs.scrollspy')  // Add a custom event.
+        this.activeTarget = null
+        return this.clear()
+      }
+
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i])
+      }
+    }
+
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target
+
+      this.clear()
+
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]'
+
+      var active = $(selector)
+        .parents('li')
+        .addClass('active')
+
+      if (active.parent('.dropdown-menu').length) {
+        active = active
+          .closest('li.dropdown')
+          .addClass('active')
+      }
+
+      active.trigger('activate.bs.scrollspy')
+    }
+
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parentsUntil(this.options.target, '.active')
+        .removeClass('active')
+    }
+
+
+    // SCROLLSPY PLUGIN DEFINITION
+    // ===========================
+
+    function Plugin(option) {
+      return this.each(function () {
+        var $this   = $(this)
+        var data    = $this.data('bs.scrollspy')
+        var options = typeof option == 'object' && option
+
+        if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+        if (typeof option == 'string') data[option]()
+      })
+    }
+
+    var old = $.fn.scrollspy
+
+    $.fn.scrollspy             = Plugin
+    $.fn.scrollspy.Constructor = ScrollSpy
+
+
+    // SCROLLSPY NO CONFLICT
+    // =====================
+
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old
+      return this
+    }
+
+
+    // SCROLLSPY DATA-API
+    // ==================
+
+    $(window).on('load.bs.scrollspy.data-api', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this)
+        Plugin.call($spy, $spy.data())
+      })
+    })
+
+  }(jQuery);
+</script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+        setTimeout(function () {
+          $('.sidebar-toggle').trigger('click');
+        }, 800);
+      }
+    });
+  </script>
+
+
+
 
   
 <script type="text/x-mathjax-config">
@@ -868,6 +922,23 @@
 
   
   
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zhanggz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
   
 
 
