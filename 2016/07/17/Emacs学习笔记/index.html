@@ -20,7 +20,7 @@
 
 
 
-  <meta name="keywords" content="Linux,SecureCRT,putty,ssh,tmux,xshell," />
+  <meta name="keywords" content="emacs,lisp,vi," />
 
 
 
@@ -41,7 +41,7 @@
   </script>
 
 
-  <title> Linux远程管理工具介绍 // Gz's Blog </title>
+  <title> Emacs学习笔记 // Gz's Blog </title>
 </head>
 
 <body>
@@ -129,7 +129,7 @@
           
           
             
-              Linux远程管理工具介绍
+              Emacs学习笔记
             
           
         </h1>
@@ -137,7 +137,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-03-08
+          发表于 2016-07-17
         </span>
 
         
@@ -146,8 +146,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/03/09/Linux远程管理工具介绍/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/09/Linux远程管理工具介绍/"></span>
+            <a href="/2016/07/17/Emacs学习笔记/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/17/Emacs学习笔记/"></span>
             </a>
           </span>
           
@@ -161,100 +161,12 @@
       
 
       
-        <h1 id="写在前面">写在前面</h1><p>在Linux下工作也有两年多了，在平常工作中，也会将自己的一些经验传授给新人，正所谓“教是最好的学”，在此过程中，我可以把自己所学进一步提炼，使其系统化。<br>本人怀着敬畏之心，本着班门弄斧的态度，写下这些文字的。大牛请跳过，让您见笑了，戝笑～</p>
-<blockquote>
-<p><strong>本文整理的是Linux终端操作和文件传输相关工具介绍，远程桌面不在讨论范围</strong></p>
-</blockquote>
+        <h1 id="写在前面">写在前面</h1><p>最初知道Emacs是缘于一篇文章「神的编辑器，编辑器之神」，加上哥们的鼓动，就入了Emacs教。熟悉并用了一段时间，慢慢还是放弃了，奇葩的快捷键，小拇指的压力，加上用的是windows，我想主要就是这些原因吧。后来又转了一次，中间还是放弃了，甚至还打出了「保护小拇指，远离Emacs」的口号。直到第三次转Emacs，目前来看还算OK吧，打开电脑第一件事是开Emacs，然后直到关电脑。<br>如果要评价下这款比自己还要老的软件，我不想用「这货就是一操作系统」等说法，而是要说「学Emacs，要相信有来生，因为一生之中你无法掌握其全部内容」。</p>
 <a id="more"></a>
-<h1 id="管理工具介绍">管理工具介绍</h1><h2 id="SecureCRT">SecureCRT</h2><p><a href="http://zh.wikipedia.org/wiki/SecureCRT" target="_blank" rel="external">SecureCRT</a>是VanDyke Software的一个商业SSH、Telnet客户端和虚拟终端软件。SecureCRT最初是一个Windows下的产品，目前VanDyke增加了Mac OS X和Linux下的版本。</p>
-<h3 id="版本介绍">版本介绍</h3><ul>
-<li>windows版本</li>
-</ul>
-<p><img src="http://www.vandyke.com/images/screenshots/securecrt/scrt70win_tabs.jpg" alt=""></p>
-<ul>
-<li>Linux版本</li>
-</ul>
-<p><img src="http://www.vandyke.com/images/screenshots/securecrt/securecrt70tabsess.jpg" alt=""></p>
-<ul>
-<li>Mac版本</li>
-</ul>
-<p><img src="http://www.vandyke.com/images/screenshots/securecrt/scrt70mac_tabs.jpg" alt=""></p>
-<ul>
-<li>Ipad版本</li>
-</ul>
-<p><img src="http://www.vandyke.com/images/screenshots/ipad/mc01.jpg" alt=""></p>
-<h3 id="文件传输">文件传输</h3><ul>
-<li>z-modem rz/sz</li>
-</ul>
-<p><code>rz</code>  : 将服务器端选择的文件发送（send）到本地。</p>
-<p><code>sz</code> :  运行该命令会弹出一个文件选择窗口，从本地选择文件上传到服务器。</p>
-<p><strong> 若命令无法执行，一般情况为服务器不支持z-modem，需要安装<code>rzsz</code>，具体安装方法自行Google.</strong></p>
-<ul>
-<li>scp</li>
-</ul>
-<p>本地文件上传到服务器</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp local_file user<span class="variable">@remoteIP</span><span class="symbol">:remote_file</span></span><br></pre></td></tr></table></figure>
-<p>本地目录上传到服务器</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r local_folder user<span class="variable">@remoteIP</span><span class="symbol">:remote_folder</span></span><br></pre></td></tr></table></figure>
-<p>服务器文件下载到本地</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp usr<span class="variable">@remoteIP</span><span class="symbol">:remote_file</span> local_file</span><br></pre></td></tr></table></figure>
-<p>服务器目录下载到本地</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r user<span class="variable">@remoteIP</span><span class="symbol">:remote_folder</span> local_folder</span><br></pre></td></tr></table></figure>
-<p><strong>如果服务器端口有变化，用<code>-P port</code>进行指定。</strong></p>
-<ul>
-<li>sftp</li>
-</ul>
-<p><a href="http://zh.wikipedia.org/wiki/SSH%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">sftp</a>是基于SSH的一组传输协议。<br>在SecureCRT中按下快捷键<code>ALT+P</code>，开启新的会话，进入FTP操作模式。</p>
-<p>本地文件上传到服务器</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">put</span> local_file</span><br></pre></td></tr></table></figure>
-<p>本地文件目录上传到服务器</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">put</span> -r local_folder</span><br></pre></td></tr></table></figure>
-<p>服务器目录下载到本地</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get</span> remote_file</span><br></pre></td></tr></table></figure>
-<p>服务器文件目录下载到本地</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get</span> -r remote_folder</span><br></pre></td></tr></table></figure>
-<p><strong>相关命令详细使用方法请查看帮助文档。</strong></p>
-<h2 id="XManager套装">XManager套装</h2><p><a href="http://www.netsarang.com/" target="_blank" rel="external">XManager</a>套装中，常用工具主要包括Xshell和Xftp。</p>
-<h3 id="版本介绍-1">版本介绍</h3><ul>
-<li>Xshell</li>
-</ul>
-<p><img src="http://zhanggz.qiniudn.com/xshell.jpg" alt=""></p>
-<ul>
-<li>Xftp</li>
-</ul>
-<p><img src="http://zhanggz.qiniudn.com/xftp.jpg" alt=""></p>
-<h3 id="文件传输-1">文件传输</h3><ul>
-<li>z-modem rz/sz</li>
-</ul>
-<p>参考SecureCRT此功能相关介绍。</p>
-<ul>
-<li>scp</li>
-</ul>
-<p>参考SecureCRT此功能相关介绍。</p>
-<ul>
-<li>xftp</li>
-</ul>
-<p>此功能使用Xftp工具，可实现鼠标拖拽，不用写命令，比较方便。</p>
-<h2 id="Putty">Putty</h2><p><a href="http://putty.cs.utah.edu/" target="_blank" rel="external">Putty</a>是一个免费的telnet、rlogin和ssh客户端。<br><img src="http://www.putty.ws/sites/all/themes/putty/images/01.gif" alt=""></p>
-<h3 id="文件传输-2">文件传输</h3><ul>
-<li>z-modem rz/sz</li>
-</ul>
-<p><strong>不支持</strong></p>
-<ul>
-<li>scp</li>
-</ul>
-<p>参考SecureCRT此功能相关介绍。</p>
-<ul>
-<li>xftp</li>
-</ul>
-<p>此功能需要在putty的安装目录下，单独运行psftp工具，相关操作命令，参考SecureCRT此功能相关介绍。</p>
-<h2 id="比较">比较</h2><p> 一般linux初学者，可能会在windows下虚拟一个Linux系统供自己学习，从这一点考虑，我会倾向于推荐Xshell+Xftp。土壕可以考虑SecureCRT，当然你可以说破解版有的是，我只想说，程序员何苦为难程序员。如果你的工作环境有Linux和Windos，putty会是不错的选择，本人目前使用putty，有时直接在shell里用原生的SSH命令，也是挺爽的～<br>  详细请参考<a href="http://zh.wikipedia.org/wiki/SSH%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%AF%94%E8%BE%83" target="_blank" rel="external">SSH工具比较</a></p>
-<h1 id="Linux终端利器－tmux">Linux终端利器－tmux</h1><blockquote>
-<p>我们大多数情况下，Linux是作为服务器使用，我们远程过去，配置，部署，监控，分析，必要时候需要多窗口操作。当然&gt;SecureCRT，Xshell等工具都支持tab窗口，Putty也可以通过插件实现。我在这里再提供一种选择，终端分屏软件，直接上图，有兴趣的自行Google。</p>
-</blockquote>
-<p><img src="http://zhanggz.qiniudn.com/tmux.jpg" alt=""></p>
-<hr>
-<p><strong>文章转载请注明作者和出处</strong></p>
+<h1 id="SpaceEmacs_vs_Steve_Purcell">SpaceEmacs vs Steve Purcell</h1><p>Vi与Emacs的圣战不知道打了多少年，而且我坚信这也是没有结果的事，信仰问题，无关对错。不过做为一个Emacser，我还是认为，会Emacs的人大都会一些Vi，会Vi的人不一定会Emacs。<br>以前也知道Evil这个包，但一直没用过，坚持使用原生的key-binding（只是Caps与Ctrl对调了）。不过当了解SpaceEmacs时，还是兴奋了一下子，这货不但有漂亮的UI，而且默认提供了两种模式，经典的Emacs模式和Vim模式。Vim模式下，基于Vi精简的设计原则，加上Emacs强大的自定义，SpaceEmacs有一套自己的快捷键，都是空格键（space）触发，所以SapceEmacs的名字应该也是这么来的～<br>目前在国内，SpaceEmacs社区也是比较火热的，而且好多是从Vim阵营过来的，有一个哥们「子龙山人」，制作了一系列的视频，力荐SpaceEmacs，足见其安利效果（这要是放过去，会被人骂死吧），有兴趣的可以尝试一下。<br>我也安装了SpaceEmacs，玩了一下，用的是经典模式，对它那套新的快捷键兴趣不大，但是漂亮的UI，清晰的包管理，layer的概念，优秀的插件，还是很值得推荐的。玩了一周后，我又换回自己的配置，基于Steve Purcell的配置修改的，没有太多理由，自己的东西用着顺手一点吧，习惯了。不过还是希望看到SpaceEmacs越来越火～</p>
+<h1 id="org-mode">org-mode</h1><p>我工作中一直写Java，用Emacs一直没找到合适的方案，还是IDE更效率，写python，shell时有时会用Emacs，一直支持我坚持下来的是org-mode，我用它记笔记，写文档，做GTD，当然有时也用markdown，比如这篇文章（掩面～）。<br>个人觉得做为一个coder，「org-mode」，「reST」，「markdown」这三个如果一个都没听过，那我也就呵呵了，自己google吧～<br>上面也提到了，我用org-mode和markdown，reST没有用过，不做评价，另外两种文档格式是基于文本标记，基本可以跨全平台。由于我的操作系统是Linux，众所周知，在桌面市场，这是一个不被主流办公软件所照顾的系统。在office模式兼容还有这样或那样的小问题时，org-mode成为我使用频率最高的文档格式。在这也推荐大家尝试，不过这里有个坑，因为org-mode只在Emacs下才能发挥它最大的特性，其中比较典型的是基于org Agenda的GTD日常事务管理，虽然一直知道，但一直没有尝试，org Agenda也是自己最近才get到的技能，不得不说，还是挺爽的～</p>
+<h1 id="Lisp">Lisp</h1><p>记得之前看「黑客与画家」时，前半段还好，到后面完全就是各种安利Lisp语言，那感觉就像现在在朋友圈里看到的软文，只不过这个软文不软，Lisp也确实是个好东西，目前国内玩Lisp的，首屈一指的应该是「伞哥」了吧，只不过这哥们现在在国外安心求学，落得一个逍遥。<br>「编程心理学」中提到了「编程母语」的概念，大概意思是程序员的入门编程语言很大程度影响其编程思维。个人还是比较认同的这个观点，所以有机会还是要多了解其它不同类型的编程语言（这里说的不是让你从.Net转Java，或者转C++什么，这些算同一类型的语言）。关于Lisp，我目前还没有太多可以表达的，但后面的学习规划中，有它的一席之地～</p>
+<h1 id="写在后面">写在后面</h1><p>乱七八糟的写了一堆，您如果都看到这了，就将就一下吧。<br>我经常跟我的同事传达一个观点，相比其它历史，计算机的历史，或者叫IT史本来就短多了，作为一个相关从业者，还是应该多了解一下自己行业的历史，别一说偶像就是乔布斯，马云什么的（没有诋毁这二位的意思）。而像Vi/Emacs这种历久弥新的软件，有人它们是神器，有人说它们是传销，种种说法，难道不值得你一探究竟么？</p>
 
       
     </div>
@@ -263,17 +175,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/"> #Linux </a>
+            <a href="/tags/emacs/"> #emacs </a>
           
-            <a href="/tags/SecureCRT/"> #SecureCRT </a>
+            <a href="/tags/lisp/"> #lisp </a>
           
-            <a href="/tags/putty/"> #putty </a>
-          
-            <a href="/tags/ssh/"> #ssh </a>
-          
-            <a href="/tags/tmux/"> #tmux </a>
-          
-            <a href="/tags/xshell/"> #xshell </a>
+            <a href="/tags/vi/"> #vi </a>
           
         </div>
       
@@ -282,11 +188,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/05/24/Linux初始化工作/">Linux初始化工作</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/07/SpringMVC数据绑定校验/">SpringMVC数据绑定校验</a>
             
           </div>
         </div>
@@ -302,8 +208,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/03/09/Linux远程管理工具介绍/"
-               data-title="Linux远程管理工具介绍" data-url="http://yoursite.com/2015/03/09/Linux远程管理工具介绍/">
+          <div class="ds-thread" data-thread-key="2016/07/17/Emacs学习笔记/"
+               data-title="Emacs学习笔记" data-url="http://yoursite.com/2016/07/17/Emacs学习笔记/">
           </div>
         
       </div>
@@ -398,7 +304,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#管理工具介绍"><span class="nav-number">2.</span> <span class="nav-text">管理工具介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SecureCRT"><span class="nav-number">2.1.</span> <span class="nav-text">SecureCRT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本介绍"><span class="nav-number">2.1.1.</span> <span class="nav-text">版本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件传输"><span class="nav-number">2.1.2.</span> <span class="nav-text">文件传输</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XManager套装"><span class="nav-number">2.2.</span> <span class="nav-text">XManager套装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本介绍-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">版本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件传输-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">文件传输</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Putty"><span class="nav-number">2.3.</span> <span class="nav-text">Putty</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件传输-2"><span class="nav-number">2.3.1.</span> <span class="nav-text">文件传输</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较"><span class="nav-number">2.4.</span> <span class="nav-text">比较</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux终端利器－tmux"><span class="nav-number">3.</span> <span class="nav-text">Linux终端利器－tmux</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpaceEmacs_vs_Steve_Purcell"><span class="nav-number">2.</span> <span class="nav-text">SpaceEmacs vs Steve Purcell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#org-mode"><span class="nav-number">3.</span> <span class="nav-text">org-mode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lisp"><span class="nav-number">4.</span> <span class="nav-text">Lisp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写在后面"><span class="nav-number">5.</span> <span class="nav-text">写在后面</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
